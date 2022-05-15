@@ -1,3 +1,9 @@
+require 'user.options'
 require 'user.plugins'
-require 'user.lsp'
+require 'user.language-servers'
 require 'user.completion'
+require 'user.lualine'
+require 'user.git'
+require 'Comment'.setup{}
+require 'user.keybinds'
+require 'user.colorscheme'
