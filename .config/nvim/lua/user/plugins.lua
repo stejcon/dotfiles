@@ -11,13 +11,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*",
-	callback = function()
-		vim.cmd[[so %]]
-		vim.cmd[[PackerSync]]
-	end
-})
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
 
 return require('packer').startup(function(use)
 	-- Packer --
@@ -46,14 +45,24 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-rhubarb'
 	use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
+	-- Treesitter --
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
 	-- Telescope --
 	use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+	-- Colorschemes --
+	use 'morhetz/gruvbox'
+	use 'jacoborus/tender.vim'
+	use {'dracula/vim', as = 'dracula'}
+	use 'shaunsingh/nord.nvim'
+
 	-- Misc --
 	use 'nvim-lualine/lualine.nvim'
 	use 'numToStr/Comment.nvim'
-	use 'morhetz/gruvbox'
+
+	-- LaTeX --
 
 	if PACKER_BOOTSTRAP then
 		require('packer').sync()

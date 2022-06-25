@@ -1,6 +1,7 @@
 require 'user.options'
 require 'user.plugins'
 require 'user.language-servers'
+require 'user.treesitter'
 require 'user.completion'
 require 'user.lualine'
 require 'user.git'

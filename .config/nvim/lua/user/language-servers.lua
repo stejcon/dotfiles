@@ -7,6 +7,14 @@ local servers = {
 	"sumneko_lua",
 	"bashls",
 	"pyright",
+	"ltex",
+	"cmake",
+	"spectral",
+	"sqlls",
+	"taplo",
+	"emmet_ls",
+	"r_language_server",
+	"jdtls",
 }
 
 lsp_installer.setup({
