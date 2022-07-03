@@ -21,8 +21,10 @@ local filetypes = {
 	'bibtex',
 	'markdown',
 
-	-- LSP covered by spectral
+	-- LSP covered by yamlls
 	'yaml',
+
+	-- LSP covered by jsonls
 	'json',
 
 	-- LSP covered by cmake

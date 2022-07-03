@@ -9,12 +9,13 @@ local servers = {
 	"pyright",
 	"ltex",
 	"cmake",
-	"spectral",
 	"sqlls",
 	"taplo",
 	"emmet_ls",
 	"r_language_server",
 	"jdtls",
+	"jsonls",
+	"yamlls",
 }
 
 lsp_installer.setup({
@@ -49,6 +50,13 @@ for _, lsp in ipairs(servers) do
 		lspconfig.rust_analyzer.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+		})
+	elseif (lsp == 'clangd') then
+		lspconfig.clangd.setup({
+			cmd = {
+				vim.fn.stdpath("data") .. "/lsp_servers/clangd/clangd/bin/clangd" ,
+				"--background-index", "--cross-file-rename", "--header-insertion=never"
+			}
 		})
 	else
 	lspconfig[lsp].setup {
