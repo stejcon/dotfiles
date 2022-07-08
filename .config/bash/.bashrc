@@ -4,7 +4,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-[[ -d $HOME/.bin ]] && export PATH=$PATH:$HOME/.local/bin/:$HOME/scripts/
+export PATH=$PATH:$HOME/.local/bin/:$HOME/scripts/
 export EDITOR=/bin/nvim
 
 alias ls='ls --color=auto'
@@ -81,7 +81,7 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 . "/home/stephen/.local/share/cargo/env"
